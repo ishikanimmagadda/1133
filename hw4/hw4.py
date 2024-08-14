@@ -21,8 +21,9 @@ def find_password(filename):
                     password = chr(i) + chr(j) + chr(k) + chr(l)
     #TODO: Try all possible four letter passwords, not just 'pwnd'
     #password = 'pwnd'
-    if decrypt(data,password):
-        return password
+                    if decrypt(data,password):
+                        return password
+
 
 # Problem B: count_primes
 #==========================================
@@ -35,9 +36,39 @@ def find_password(filename):
 # Return Value:
 #   Returns the number of prime numbers between low and high, inclusive
 #==========================================
-def count_primes(low, high):
-    return
+def is_prime(number): 
+    sqri = int(number ** .5)
+    for i in range(2, sqri+1):
+        if (number/i).is_integer():
+            return False 
+        
+    return True 
 
+# print(is_prime(9))
+# print(is_prime(11))
+# print(is_prime(13))
+# print(is_prime(547120117))
+
+
+def count_primes(low, high):
+    count = 0
+    if (low > high): 
+        return 0 
+    else: 
+        for i in range(low,high + 1): 
+            if i == 1: 
+                continue
+            if is_prime(i): 
+                print(str(i) + " is prime")
+                count = count + 1
+        
+    return count
+
+# print(count_primes(1, 20))
+# print(count_primes(547120100, 547120200))
+# print(count_primes(79, 97))
+# print(count_primes(3201814, 200))
+# print(count_primes(37, 37))
 
 # Problem C: population
 #==========================================
@@ -53,9 +84,26 @@ def count_primes(low, high):
 #   100 weeks
 #==========================================
 def population(small, middle, big):
-    return
-        
+    week = 1 
 
+    
+    while (week != 101 and small >= 10 and middle >= 10 and big >= 10): 
+        changebig = (-0.1 * big) + (0.0002 * middle * big)
+        changemedium = (-.05 * middle) + (.0001 * small * middle) - (.00025* middle * big)
+        changesmall = (.1*small) - (.0002 * small * middle)
+
+        small = small + changesmall
+        big = big + changebig
+        middle = middle + changemedium
+        
+        print ("Week " + str(week) + " Small: " + str(small) + " Middle: " + str(middle) + " Big: " + str(big))
+        week = week + 1
+    return week - 1
+
+# print(population(800, 600, 1000))
+# print(population(20,30000,10))
+# print(population(400, 1000, 9))
+# print(population(1200,400,300))
 
 
 # decrypt
@@ -113,6 +161,8 @@ def vigenere(msg,key):
         i = (i+1)%len(key)
     return out_msg.replace('{',' ').replace('|','.')
 
+# print(find_password('encrypted1.txt'))
+# print(find_password('encrypted2.txt'))
+# print(find_password('encrypted3.txt'))
+# print(find_password('encrypted4.txt'))
 
-print(find_password('encrypted1.txt'))
-print(find_password('encrypted2.txt'))
