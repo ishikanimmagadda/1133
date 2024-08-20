@@ -1,9 +1,7 @@
-## Your Name
-## Your x500
+## Ishika Nimmagadda
 import copy
 
 
-# Part 1: Inversion
 #==========================================
 # Purpose:
 #   Inverts the colors of an image
@@ -97,7 +95,7 @@ def rotate(img_matrix):
 #   A 3D image matrix (see part 1)
 # Return Value:
 #   A 3D matrix of the same dimensions, with the edge detection filter
-#   applied to it (see homework instructions for details).
+#   applied to it.
 #==========================================
 
 import copy
@@ -170,11 +168,9 @@ result_3 = edge_detect(img_matrix_3)
 
 # print(result_1)
 # print(result_2)
-#print(result_3)
+# print(result_3)
 
-# DO NOT EDIT ANYTHING BELOW THIS LINE
-
-# Helper function (you don't have to understand what this does)
+# Helper function 
 #==========================================
 # Purpose:
 #   Compute the integer represented by a sequence of bytes
@@ -190,7 +186,7 @@ def big_end_to_int(ls):
         total += ele
     return total
 
-# .bmp conversion function (you don't have to understand what this does)
+# .bmp conversion function 
 #==========================================
 # Purpose:
 #   Turns a .bmp file into a matrix of pixel values, performs an operation
