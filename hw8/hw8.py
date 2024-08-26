@@ -21,8 +21,8 @@ def get_data_list(fname):
     #You MUST use a try-except block to prevent an error
     #if the file doesn’t exist 
 
-print(get_data_list('smallfile.csv'))
-print(get_data_list('fakefile.notreal'))
+# print(get_data_list('smallfile.csv'))
+# print(get_data_list('fakefile.notreal'))
 
 
 
@@ -37,13 +37,19 @@ print(get_data_list('fakefile.notreal'))
 #   Returns the index of the column labelled 'hw8 Grade' (an integer)
 #   OR returns -1 if there is no column labelled 'hw8 Grade'
 #==========================================
-def hw8_index(row1_str):     
-
+def hw8_index(row1_str):    
+    
+    try: 
+        row_list = row1_str.split(",")
+        hw8_index = row_list.index('hw8 Grade')
+        return hw8_index
+    except: 
+        return -1  
     #Hint: You may use list.index(), but must prevent an error if the
     #'hw8 Grade' column is not present
-    
-    return
-
+# print(hw8_index("hw1 Grade,hw2 Grade,hw3 Grade,hw4 Grade,hw5 Grade,hw6 Grade,hw7 Grade,hw8 Grade,hw9 Grade\n"))
+# print(hw8_index("HW8 grade,HW8 Graid,hw8 Grade,HW 8grade,Homework8 grade\n"))
+# print(hw8_index('This,file,exists,,\n'))
 
 
 #Part 3: alter_grade
