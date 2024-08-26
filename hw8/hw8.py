@@ -65,11 +65,15 @@ def hw8_index(row1_str):
 #==========================================
 def alter_grade(row_str,idx):
 
+    row_list = row_str.split(",")
+    row_list[idx] = '40'
+    altered_str = ",".join(row_list)
+    return altered_str
     #Hint: Use .split and .join
 
-    return
-
-
+print(alter_grade("30,20,0,0,\n",2))
+print(alter_grade("5,2,5,6,0,0,minutes,\n",1))
+print(alter_grade("Bulbasaur,Charmander,Squirtle,Weedle,Pidgey\n",3))
 
 #Part 4: haxx
 #==========================================
