@@ -22,6 +22,7 @@ def get_data_list(fname):
     #if the file doesn’t exist 
 
 print(get_data_list('smallfile.csv'))
+print(get_data_list('fakefile.notreal'))
 
 
 
