@@ -13,15 +13,15 @@
 #==========================================
 def get_data_list(fname):
     try: 
-        lines = []
-        file1 = open(fname, 'w')
-        lines.append(file1.readlines())
+        file1 = open(fname, 'r')
+        lines = file1.readlines()
         return lines
     except: 
         return -1 
     #You MUST use a try-except block to prevent an error
     #if the file doesn’t exist 
-    
+
+print(get_data_list('smallfile.csv'))
 
 
 
