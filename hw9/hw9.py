@@ -16,6 +16,7 @@ def next_words(fname):
     with open(fname, 'r') as file1:
         # Reading the whole content and splitting by space
         words = file1.read().split()
+        #print(words)
         
         for i in range(len(words)):
             current_word = words[i]
