@@ -55,7 +55,7 @@ def fanfic(fname):
             first_word = next_word
         print(final)
         
-print(fanfic('short1.txt'))
+#print(fanfic('short1.txt'))
 #print(fanfic('short2.txt'))
 
         
