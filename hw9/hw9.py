@@ -62,7 +62,41 @@ def fanfic(fname):
     
         
         
-    
+def total_txt_size(directory): 
+    final = 0
+    for key, value in directory.items(): 
+        if type(value) == int:
+            if ".txt" in key:
+                final = final + value
+        else: 
+            final = final + total_txt_size(directory[key]) 
+    return final
+
+root1 = {'time_travel':{'micro_black_holes.zip':100,
+                        'quantum_realm.pdf':150,
+                        'magic.txt':200},
+         'space_travel':{'tesseract.java':400,
+                         'magic.txt':100,
+                         'warp_drive.py':300,
+                         'mass_relay.txt':100}}
+print(total_txt_size(root1))
+
+root2 = {}
+print(total_txt_size(root2))
+
+root3 = {'labs':{'lab1.txt':223,
+                'lab2.txt':251,
+                'lab3.txt':317,},
+        'hws':{},
+        'plans':{'vacation.txt':636,
+                 'evil':{'world_domination.txt':766}},
+        'resume.txt':607,
+        'cat.jpg':607}
+print(total_txt_size(root3))
+            
+root4 = {'a':{'b':{'c':{'d':{'e':{'f.c':10}},'g.txt':12}}}}
+print(total_txt_size(root4))
+
     
 
         
