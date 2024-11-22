@@ -85,11 +85,7 @@ class SafariSimulator(tk.Frame):
 
         # Catch probability label
         self.catchProbLabel = tk.Label(self, text="", font=("Arial", 12))
-        self.catchProbLabel.pack(pady=9)
-
-        #Complete and pack the catchProbLabel here.
-        self.catchProbLabel = tk.Label(self, text="")
-        self.catchProbLabel.pack(pady=10)
+        self.catchProbLabel.pack(pady=8)
 
     def nextPokemon(self):
         print("In nextPokemon")
@@ -132,9 +128,10 @@ class SafariSimulator(tk.Frame):
             return
         
         rand_value = random.random()
-        probability = min((self.current_pokemon.catch_rate + 1), 151) / 449.5
+        catch_probability = min((self.current_pokemon.catch_rate + 1), 151) / 449.5
+
         
-        if rand_value < probability:
+        if rand_value < catch_probability:
             self.caught_pokemon.append(self.current_pokemon)
             self.messageLabel["text"] = f"Gotcha! You caught {self.current_pokemon.name}!"
             self.nextPokemon()
@@ -174,7 +171,7 @@ class SafariSimulator(tk.Frame):
         
         self.messageLabel["text"] = "You're all out of balls, hope you had fun!"
         # Create the summary of caught Pokémon
-        if hasattr(self, 'caught_pokemon') and self.caught_pokemon:  # Check if any Pokémon were caught
+        if self.caught_pokemon:  # Check if any Pokémon were caught
             caught_list = "\n".join([pokemon.name for pokemon in self.caught_pokemon])
             summary = f"You caught {len(self.caught_pokemon)} Pokémon:\n{caught_list}"
         else:
